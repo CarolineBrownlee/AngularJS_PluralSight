@@ -18,10 +18,14 @@ myApp.controller('myCtrl', function($scope, $http){
         $scope.user = response.data;
     };
     
+    // function to pass to my .then to give the user a message if an error occurs in my get request
+    var onError = function(reason){
+        $scope.error = "I'm Sorry, I couldn't fetch your information at this time."
+    }
     // get the data 
-    $http.get("http://api.github.com/users/robconery")
+    $http.get("http://api.github.com/users/CarolineBrownlee")
         // the function to call when get request is called is onUserComplete, so we pass that to our .then
-        .then(onUserComplete);
+        .then(onUserComplete, onError);
     });
 
 // ========== $http SERVICE =========
