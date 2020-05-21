@@ -1,3 +1,6 @@
+// Controllers live in modules, which avoids global namespace
+// Controllers manipulate scope
+// Controllers can use services like $http
 var myApp = angular.module('myApp', []);
 
 // created a person object
