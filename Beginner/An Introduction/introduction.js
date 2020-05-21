@@ -2,7 +2,7 @@ var result = 5 + 5;
  
 alert(result);
 
-// funtions as abstrations
+// functions as abstrations
 var work = function(){
     console.log("working hard!")
 }
@@ -65,3 +65,4 @@ worker.job2();
 // gettingStarted.js:38 task22
 // gettingStarted.js:34 task13
 // gettingStarted.js:38 task24
+
