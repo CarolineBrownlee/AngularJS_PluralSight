@@ -17,10 +17,15 @@
 
             <h1>{{message}}</h1>
             <!-- binding data from person object in js file -->
-            <div>First name:  {{person.firstName}}</div>
+            <!-- <div>First name:  {{person.firstName}}</div>
             <div>Last name:  {{person.lastName}} </div>
             <div>
                 <img src="{{person.imageSrc}}" title="{{person.firstName}} {{person.lastName}}">
+            </div> -->
+            <div>Name:  {{user.name}}</div>
+            <div>Location:  {{user.location}}</div>
+            <div>
+                <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
             </div>
             
             
