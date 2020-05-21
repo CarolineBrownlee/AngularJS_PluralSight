@@ -16,6 +16,14 @@
         <div ng-controller='myCtrl'>
 
             <h1>{{message}}</h1>
+            <!-- binding data from person object in js file -->
+            <div>First name:  {{person.firstName}}</div>
+            <div>Last name:  {{person.lastName}} </div>
+            <div>
+                <img src="{{person.imageSrc}}" title="{{person.firstName}} {{person.lastName}}">
+            </div>
+            
+            
             
         </div>       
     </body>
