@@ -1,0 +1,30 @@
+<!-- REVIEW NOTES -->
+<!-- The controller and the model are only concerned with gathering the data -->
+<!-- Model doesn't touch HTML; the view is only concerned with presenting the data available from the model -->
+<!-- Data binding moves model data to view, directives allow for indirect model view interaction -->
+<!-- $scope provides the model -->
+
+<!DOCTYPE html>
+<html ng-app="gitHubApp">
+<head>
+    <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="directivesAndViews.js"></script>
+</head>
+<body>
+    <div ng-controller="gitHubCtrl">
+
+        <!-- adding search inputs -->
+        <form name="searchUser">
+            <input type="search" placeholder="Enter username to find.">
+            <input type="submit" value="Search">
+            <hr/>
+        </form>
+
+        <div>{{ error }}</div>
+        <div>{{ user.name }} </div>
+        <div>
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+        </div>
+    </div>
+</body>
+</html>
