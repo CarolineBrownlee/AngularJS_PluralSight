@@ -1,0 +1,12 @@
+body {
+    background-color: aliceblue;
+}
+
+.avatar {
+    max-width: 25%;
+    border: 50px black solid;
+}
+
+div {
+    text-align: center;
+}

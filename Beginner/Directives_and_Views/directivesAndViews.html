@@ -8,22 +8,29 @@
 <html ng-app="gitHubApp">
 <head>
     <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <link rel="stylesheet" href="directivesAndViews.css">
     <script src="directivesAndViews.js"></script>
 </head>
 <body>
     <div ng-controller="gitHubCtrl">
 
+        <h1>{{ message }}</h1>
         <!-- adding search inputs -->
         <form name="searchUser">
-            <input type="search" placeholder="Enter username to find.">
-            <input type="submit" value="Search">
+            <!-- adding directive ng-model to read input from user and push value to scope object, moves input user types into your model -->
+            <input type="search" placeholder="Enter username to find." ng-model="username">
+            <!-- ng-click directive takes an expression that's going to be a function call -->
+            <input type="submit" value="Search" ng-click="search(username)">
+            <!-- binding directive to display username instantly-->
+            {{username}}
             <hr/>
         </form>
 
         <div>{{ error }}</div>
-        <div>{{ user.name }} </div>
+        <h2>{{ user.name }}</h2>
+        <h3>{{ user.location }}</h3>
         <div>
-            <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" class="avatar">
         </div>
     </div>
 </body>
