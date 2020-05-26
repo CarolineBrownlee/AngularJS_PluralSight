@@ -1,6 +1,6 @@
 var gitHubApp = angular.module("gitHubApp", []);
 
-gitHubApp.controller("gitHubCtrl", function($scope, $http) {
+gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval) {
 
     var gitHubResponse = function(response){
         $scope.user = response.data;
@@ -17,6 +17,16 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http) {
         $scope.error = "Sorry, I can't get that information for you at the moment."
     }
 
+    var decrementCountdown = function() {
+        $scope.countdown -= 1;
+        if($scope.countdown < 1) {
+            $scope.search($scope.username);
+        }
+    }
+
+    var startCountdown = function(){
+        $interval(decrementCountdown, 1000, $scope.countdown)
+    }
     // Create a search attribute on $scope and have that equal to a function that takes a username parameter and then send off the request
     $scope.search = function(username) {
         $http.get("http://api.github.com/users/" + username)
@@ -26,4 +36,6 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http) {
 
         $scope.message = "GitHub Viewer Application";
         $scope.repoSortOrder = '-stargazers_count';
+        $scope.countdown = 5;
+        startCountdown();
 });
