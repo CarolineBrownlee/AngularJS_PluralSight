@@ -28,7 +28,7 @@
                 <hr/>
         </form>
 
-        <div>{{ error }}</div>
+        <div ng-hide="user">{{ error }}</div>
         <div ng-include="'userdetails.html'" ng-show="user"> </div>
     </div>
 </body>
