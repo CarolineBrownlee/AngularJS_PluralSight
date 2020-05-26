@@ -12,26 +12,42 @@
     <script src="directivesAndViews.js"></script>
 </head>
 <body>
-    <div ng-controller="gitHubCtrl">
+    <div ng-controller="gitHubCtrl" class="myElement">
 
         <h1>{{ message }}</h1>
         <!-- adding search inputs -->
         <form name="searchUser">
             <!-- adding directive ng-model to read input from user and push value to scope object, moves input user types into your model -->
-            <input type="search" placeholder="Enter username to find." ng-model="username">
-            <!-- ng-click directive takes an expression that's going to be a function call -->
-            <input type="submit" value="Search" ng-click="search(username)">
-            <!-- binding directive to display username instantly-->
-            {{username}}
-            <hr/>
+            <div class="formElement">
+                <input class="searchUserInput" type="search" placeholder="enter username" ng-model="username">
+                <!-- ng-click directive takes an expression that's going to be a function call -->
+                <input class="searchUserButton" type="submit" value="Search" ng-click="search(username)">
+                <!-- binding directive to display username instantly-->
+                
+            </div>
+                <hr/>
         </form>
 
-        <div>{{ error }}</div>
+        <div id="divID">{{ error }}</div>
         <h2>{{ user.name }}</h2>
         <h3>{{ user.location }}</h3>
-        <div>
+        <div> 
             <img ng-src="{{user.avatar_url}}" title="{{user.name}}" class="avatar">
         </div>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Stars</th>
+                <th>Language</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="repo in repos">
+                    <td>{{ repo.name }}</td>
+                    <td>{{ repo.stargazers_count }}</td>
+                    <td>{{ repo.language }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

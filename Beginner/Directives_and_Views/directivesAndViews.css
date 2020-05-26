@@ -1,12 +1,40 @@
 body {
-    background-color: aliceblue;
+    background-color: gray;
 }
 
 .avatar {
-    max-width: 25%;
-    border: 50px black solid;
+    max-width: 50%;
+    border: 20px black solid;
+    margin-top: 50px;
 }
 
 div {
     text-align: center;
+}
+
+.searchUserInput {
+    font-size: 50px;
+    border: 10px black solid;
+    max-width: 50%; 
+}
+
+.searchUserButton {
+    font-size: 50px;
+    border: 10px solid black;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+h2 {
+    font-size: 75px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+.formElement {
+    padding-bottom: 50px;
 }
