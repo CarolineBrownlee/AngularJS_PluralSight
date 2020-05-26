@@ -28,26 +28,8 @@
                 <hr/>
         </form>
 
-        <div id="divID">{{ error }}</div>
-        <h2>{{ user.name }}</h2>
-        <h3>{{ user.location }}</h3>
-        <div> 
-            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" class="avatar">
-        </div>
-        <table>
-            <thead>
-                <th>Name</th>
-                <th>Stars</th>
-                <th>Language</th>
-            </thead>
-            <tbody>
-                <tr ng-repeat="repo in repos">
-                    <td>{{ repo.name }}</td>
-                    <td>{{ repo.stargazers_count }}</td>
-                    <td>{{ repo.language }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div>{{ error }}</div>
+        <div ng-include="'userdetails.html'" ng-show="user"> </div>
     </div>
 </body>
 </html>

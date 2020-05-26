@@ -20,10 +20,10 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http) {
     // Create a search attribute on $scope and have that equal to a function that takes a username parameter and then send off the request
     $scope.search = function(username) {
         $http.get("http://api.github.com/users/" + username)
-        .then(gitHubResponse, onRepos, errorResponse)
+        .then(gitHubResponse, errorResponse)
         console.log(username)
     };
 
         $scope.message = "GitHub Viewer Application";
-        $scope.username = "";
+        $scope.repoSortOrder = '-stargazers_count';
 });
