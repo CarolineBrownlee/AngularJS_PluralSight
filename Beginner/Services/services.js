@@ -1,6 +1,6 @@
 var gitHubApp = angular.module("gitHubApp", []);
 
-gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log) {
+gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log, $anchorScroll, $location) {
 
     var gitHubResponse = function(response){
         $scope.user = response.data;
@@ -11,6 +11,8 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log) {
     
     var onRepos = function(response) {
         $scope.repos = response.data;
+        $location.hash("userDetails");
+        $anchorScroll();
     }
 
     var errorResponse = function(reason) {
