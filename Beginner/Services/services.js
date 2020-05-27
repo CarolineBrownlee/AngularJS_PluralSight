@@ -1,6 +1,6 @@
 var gitHubApp = angular.module("gitHubApp", []);
 
-gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval) {
+gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log) {
 
     var gitHubResponse = function(response){
         $scope.user = response.data;
@@ -29,6 +29,7 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval) {
     }
     // Create a search attribute on $scope and have that equal to a function that takes a username parameter and then send off the request
     $scope.search = function(username) {
+        $log.info("Searching for " + username)
         $http.get("http://api.github.com/users/" + username)
         .then(gitHubResponse, errorResponse)
         console.log(username)
