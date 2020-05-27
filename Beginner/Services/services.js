@@ -1,16 +1,15 @@
 var gitHubApp = angular.module("gitHubApp", []);
 
-gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log, $anchorScroll, $location) {
+gitHubApp.controller("gitHubCtrl", function($scope, github, $interval, $log, $anchorScroll, $location) {
 
-    var gitHubResponse = function(response){
-        $scope.user = response.data;
-        $http.get($scope.user.repos_url)
-            .then(onRepos, errorResponse)  
-        console.log($scope)
+    var gitHubResponse = function(data){
+        $scope.user = data;
+        github.getRepos($scope.user)
+            .then(onRepos, errorResponse);
     };
     
-    var onRepos = function(response) {
-        $scope.repos = response.data;
+    var onRepos = function(data) {
+        $scope.repos = data;
         $location.hash("userDetails");
         $anchorScroll();
     }
@@ -32,7 +31,7 @@ gitHubApp.controller("gitHubCtrl", function($scope, $http, $interval, $log, $anc
     // Create a search attribute on $scope and have that equal to a function that takes a username parameter and then send off the request
     $scope.search = function(username) {
         $log.info("Searching for " + username)
-        $http.get("http://api.github.com/users/" + username)
+        github.getUser(username)
         .then(gitHubResponse, errorResponse)
         console.log(username)
     };
