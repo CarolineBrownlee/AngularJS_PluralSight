@@ -1,0 +1,14 @@
+<div>
+    <!-- adding search inputs -->
+    {{ countdown }}
+    <form name="searchUser">
+        <!-- adding directive ng-model to read input from user and push value to scope object, moves input user types into your model -->
+        <div class="formElement">
+            <input class="searchUserInput" type="search" placeholder="enter username" ng-model="username">
+            <!-- ng-click directive takes an expression that's going to be a function call -->
+            <input class="searchUserButton" type="submit" value="Search" ng-click="search(username)">
+            <!-- binding directive to display username instantly-->
+        </div>
+        <hr/>
+    </form>
+</div>

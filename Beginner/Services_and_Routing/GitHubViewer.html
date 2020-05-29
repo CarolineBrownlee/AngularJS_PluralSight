@@ -1,0 +1,23 @@
+<!-- REVIEW NOTES -->
+<!-- The controller and the model are only concerned with gathering the data -->
+<!-- Model doesn't touch HTML; the view is only concerned with presenting the data available from the model -->
+<!-- Data binding moves model data to view, directives allow for indirect model view interaction -->
+<!-- $scope provides the model -->
+
+<!DOCTYPE html>
+<html ng-app="gitHubApp">
+<head>
+    <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="stylesheet" href="../Directives_and_Views/directivesAndViews.css">
+    <script src="app.js"></script>
+    <script src="services.js"></script>
+    <script src="gitHub.js"></script>
+</head>
+
+<body>
+    <h1>GitHub Viewer</h1>
+    <div ng-view></div>
+</body>
+
+</html>
