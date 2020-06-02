@@ -1,8 +1,8 @@
-// (function() {
+(function() {
     
-    var app = angular.module("gitHubApp", ["ngRoute"]);
+    var gitHubApp = angular.module("gitHubApp", ["ngRoute"]);
 
-    app.config(function($routeProvider) {
+    gitHubApp.config(function($routeProvider) {
         $routeProvider
             .when("/main", {
                 templateUrl: "main.html",
@@ -15,4 +15,4 @@
             .otherwise({redirectTo:"/main"})
     });
 
-// }());
+}());

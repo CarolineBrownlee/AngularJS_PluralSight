@@ -1,4 +1,4 @@
-// (function() {
+(function() {
 
     var gitHubApp = angular.module("gitHubApp");
 
@@ -27,9 +27,9 @@
 
         $scope.username = "angular";
         $scope.countdown = 5;
-        startCountdown();
+        // startCountdown();
     };
 
     gitHubApp.controller("MainController", MainController);
     
-// }());
+}());
