@@ -18,9 +18,11 @@
     </thead>
     <tbody>
         <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
-            <td>{{ repo.name }}</td>
+            <td><a ng-href="www.google.com/{{hash}}">{{ repo.name }}</a></td>
             <td>{{ repo.stargazers_count | number }}</td>
             <td>{{ repo.language }}</td>
         </tr>
     </tbody>
 </table>
+
+{% comment %} <a ng-href="http://www.gravatar.com/avatar/{{hash}}">link1</a> {% endcomment %}
