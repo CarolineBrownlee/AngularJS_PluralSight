@@ -13,6 +13,7 @@
     <script src="gitHubApp.js"></script>
     <script src="MainController.js"></script>
     <script src="UserController.js"></script>
+    <script src="RepoController.js"></script>
     <script src="gitHubFetch.js"></script>
 </head>
 
@@ -22,20 +23,3 @@
 </body>
 
 </html>
-
-{% comment %} Challenge: {% endcomment %}
-
-{% comment %} Route: /repo/:username/:reponame  
-
-Template: repo.html
-
-Controller: RepoController {% endcomment %}
-
-{% comment %} Click on repo (username (login) and repo name)
-github service to make two http //ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js
-
-api.github.com/repos/angular/angular.js
-
-Two http calls:
-get details of repo and get info to display 
-get the collaborator for a project (names and gravatar images) {% endcomment %}

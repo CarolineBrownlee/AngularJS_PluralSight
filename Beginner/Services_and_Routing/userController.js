@@ -6,10 +6,13 @@ var UserController = function ($scope, github, $routeParams) {
         $scope.user = data;
         github.getRepos($scope.user)
             .then(onRepos, errorResponse);
+        console.log("user data: ", data)
     };
     
     var onRepos = function(data) {
         $scope.repos = data;
+    
+        console.log("repo data: ", data)
     };
 
     var errorResponse = function(reason) {
