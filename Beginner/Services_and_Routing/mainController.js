@@ -1,43 +1,35 @@
-var gitHubApp = angular.module("gitHubApp", []);
+// (function() {
 
-gitHubApp.controller("gitHubCtrl", function($scope, github, $interval, $log, $anchorScroll, $location) {
+    var gitHubApp = angular.module("gitHubApp");
 
-    var gitHubResponse = function(data){
-        $scope.user = data;
-        github.getRepos($scope.user)
-            .then(onRepos, errorResponse);
-    };
-    
-    var onRepos = function(data) {
-        $scope.repos = data;
-        $location.hash("userDetails");
-        $anchorScroll();
-    }
+    var MainController = function ($scope, $interval, $location) {
 
-    var errorResponse = function(reason) {
-        $scope.error = "Sorry, I can't get that information for you at the moment."
-    }
+        var decrementCountdown = function() {
+            $scope.countdown -= 1;
+            if($scope.countdown < 1) {
+                $scope.search($scope.username);
+            }
+        };
 
-    var decrementCountdown = function() {
-        $scope.countdown -= 1;
-        if($scope.countdown < 1) {
-            $scope.search($scope.username);
-        }
-    }
-
-    var startCountdown = function(){
-        $interval(decrementCountdown, 1000, $scope.countdown)
-    }
+        var countdownInterval = null;
+        var startCountdown = function() {
+            countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
+        };
     // Create a search attribute on $scope and have that equal to a function that takes a username parameter and then send off the request
-    $scope.search = function(username) {
-        $log.info("Searching for " + username)
-        github.getUser(username)
-        .then(gitHubResponse, errorResponse)
-        console.log(username)
-    };
+        $scope.search = function(username) {
+            if(countdownInterval) {
+                $interval.cancel(countdownInterval);
+                $scope.countdown = null;
+            }
+            $location.path("/user/" + username);
+        };
+        
 
-        $scope.message = "GitHub Viewer Application";
-        $scope.repoSortOrder = '-stargazers_count';
+        $scope.username = "angular";
         $scope.countdown = 5;
         startCountdown();
-});
+    };
+
+    gitHubApp.controller("MainController", MainController);
+    
+// }());

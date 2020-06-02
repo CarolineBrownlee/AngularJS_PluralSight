@@ -5,17 +5,18 @@
 <!-- $scope provides the model -->
 
 <!DOCTYPE html>
-<html ng-app="gitHubApp">
+<html>
 <head>
     <script data-require="angular.js@*" data-semver="4.0.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script data-require="angular-route@*" data-semver="1.2.14" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <link rel="stylesheet" href="../Directives_and_Views/directivesAndViews.css">
-    <script src="app.js"></script>
-    <script src="services.js"></script>
-    <script src="gitHub.js"></script>
+    <script src="gitHubApp.js"></script>
+    <script src="MainController.js"></script>
+    <script src="UserController.js"></script>
+    <script src="gitHubFetch.js"></script>
 </head>
 
-<body>
+<body ng-app="gitHubApp">
     <h1>GitHub Viewer</h1>
     <div ng-view></div>
 </body>

@@ -1,4 +1,4 @@
-(function() {
+// (function() {
     
     var github = function($http) {
         
@@ -26,4 +26,4 @@
     var module = angular.module("gitHubApp");
     // below registers the service we just created and whenever the program calls github, it will return getUser and getRepos
     module.factory("github", github);
-}());
+// }());
